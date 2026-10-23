@@ -40,6 +40,10 @@ async function shoot({ SHOTS_DIR, showPopup, popup, queueToast, meetings, toast,
   popup().webContents.send('jb:tab', 'settings'); await wait(500); await save(popup(), 'settings');
   const next = meetings().find((m) => m.title === 'Design review');
   if (toast()) toast().close(); await wait(900); queueToast({ meeting: next, lead: 10 }); await wait(1300); if (toast()) await save(toast(), 'reminder');
+  // the same reminder one minute out, to match a tray icon that has counted down to 1
+  if (toast()) toast().close(); await wait(900);
+  const soon = { ...next, start: Date.now() + 50e3, end: Date.now() + 50e3 + 30 * 60e3 };
+  queueToast({ meeting: soon, lead: 1 }); await wait(1300); if (toast()) await save(toast(), 'reminder-1min');
   app.quit();
 }
 
