@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'">
+<title>Joinbar reminder</title>
+<link rel="stylesheet" href="shared.css"><link rel="stylesheet" href="toast.css">
+</head><body>
+<div class="card" id="card" role="alertdialog" aria-labelledby="title">
+  <div class="top"><span class="label" id="label"></span><button class="x" id="dismiss" aria-label="Dismiss">×</button></div>
+  <h1 id="title"></h1>
+  <div class="meta" id="meta"></div>
+  <div class="buttons"><button class="btn primary" id="join">Join now</button><button class="btn" id="snooze">Snooze</button></div>
+</div>
+<script src="toast.js"></script>
+</body></html>

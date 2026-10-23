@@ -1,0 +1,64 @@
+{
+  "name": "joinbar",
+  "version": "1.0.0",
+  "description": "A Windows tray app that shows your next meeting, reminds you your way, and joins in one click.",
+  "main": "src/main/main.js",
+  "author": "Jotharsh",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/",
+    "screenshots": "electron . --screenshots",
+    "dist:win": "electron-builder --win --x64"
+  },
+  "dependencies": {
+    "ical.js": "^2.2.1"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "io.github.jotharsh.joinbar",
+    "productName": "Joinbar",
+    "copyright": "Copyright (c) 2026 Jotharsh",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "artifactName": "Joinbar-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false,
+      "shortcutName": "Joinbar"
+    },
+    "portable": {
+      "artifactName": "Joinbar-${version}-portable.${ext}"
+    }
+  }
+}
