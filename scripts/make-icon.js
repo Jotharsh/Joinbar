@@ -1,5 +1,5 @@
 'use strict';
-// node scripts/make-icon.js  ->  build/icon.png (app icon) and docs/tray-states.png
+// node scripts/make-icon.js  ->  docs/tray-states.png
 const fs = require('fs');
 const path = require('path');
 const { encodePng } = require('../src/core/png');
@@ -15,25 +15,7 @@ function canvas(w, h) {
   return { buf, rect };
 }
 
-// App icon: dark rounded tile, a pixel "j" in off-white, its dot in orange.
-{
-  const S = 512, { buf, rect } = canvas(S, S);
-  const R = 96;
-  for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
-    const dx = Math.min(x, S - 1 - x), dy = Math.min(y, S - 1 - y);
-    const out = dx < R && dy < R && (R - dx - 0.5) ** 2 + (R - dy - 0.5) ** 2 > R * R;
-    if (!out) rect(x, y, 1, 1, [13, 13, 13]);
-  }
-  const cell = 44, gap = 4;
-  const glyph = ['..X..', '.....', '..X..', '..X..', '..X..', 'X.X..', '.XX..'];
-  const ox = Math.round((S - 5 * cell) / 2) + 6, oy = Math.round((S - 7 * cell) / 2);
-  glyph.forEach((row, r) => [...row].forEach((ch, c) => {
-    if (ch !== 'X') return;
-    const orange = r === 0;
-    rect(ox + c * cell, oy + r * cell, cell - gap, cell - gap, orange ? [255, 90, 31] : [244, 241, 234]);
-  }));
-  fs.writeFileSync(path.join(__dirname, '../build/icon.png'), encodePng(buf, S, S));
-}
+// The app icon is drawn from build/logo/logo.svg (render with build/logo/render.mjs).
 
 // A sheet showing the tray icon in each state, big, for the README and for checking by eye.
 {

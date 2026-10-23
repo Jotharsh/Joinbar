@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect x="100" y="100" width="824" height="824" rx="184" fill="#0d0d0d"/>
+  <g transform="translate(9 0)"><!-- the bar: a bracket the arrow goes into -->
+  <path d="M588 330 H676 V694 H588" fill="none" stroke="#f4f1ea" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- the arrow: you, joining -->
+  <path d="M330 512 H548" fill="none" stroke="#ff5a1f" stroke-width="64" stroke-linecap="round"/>
+  <path d="M470 424 L558 512 L470 600" fill="none" stroke="#ff5a1f" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+</g></svg>

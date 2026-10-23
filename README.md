@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="build/icon.png" alt="Joinbar icon" width="112" height="112">
+  <img src="docs/logo.png" alt="Joinbar logo: an orange arrow going into a bracket" width="112" height="112">
 </p>
 
 <h1 align="center">Joinbar</h1>
